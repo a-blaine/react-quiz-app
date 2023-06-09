@@ -4,6 +4,7 @@ import axios from "axios";
 export default function Quote() {
   const [displayedQuote, setDisplayedQuote] = useState({});
   const [allQuotes, setAllQuotes] = useState(null);
+  const [photos, setPhotos] = useState(" ");
   const [loaded, setLoaded] = useState(false);
 
   function handleResponse(response) {
@@ -27,9 +28,21 @@ export default function Quote() {
     getNewQuote(allQuotes);
   }
 
+  function handlePexelsResponse(response) {
+    setPhotos(response.data.photos);
+  }
+
   function load() {
     const apiUrl = "https://type.fit/api/quotes";
     axios.get(apiUrl).then(handleResponse);
+
+    const pexelsApiUrl = `https://api.pexels.com/v1/search?query=nature`;
+    const pexelsApiKey =
+      "wbS4pv9NuiHZ4u14GNmhWiymhtHjEbzVGjiwVmzmjKktYcpnXIoG2I3u";
+
+    axios
+      .get(pexelsApiUrl, { headers: { Authorization: pexelsApiKey } })
+      .then(handlePexelsResponse);
   }
 
   if (loaded) {
@@ -39,6 +52,15 @@ export default function Quote() {
           <h2>"{displayedQuote.quote}"</h2>
           <p>{displayedQuote.author}</p>
           <button onClick={updateQuote}>New quote</button>
+        </section>
+        <section>
+          {photos.map((photo, index) => {
+            return (
+              <div key={index}>
+                <img src={photo.src.landscape} alt="Relaxing nature" />
+              </div>
+            );
+          })}
         </section>
       </div>
     );
