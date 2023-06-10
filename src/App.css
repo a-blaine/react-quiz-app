@@ -1,6 +1,13 @@
-body {
-  color: var(--text-color);
-  background: var(--bg-color);
+:root {
+  --bg-color: #100f10;
+}
+
+#light body {
+  background: #cdd7cd;
+}
+
+#dark body {
+  background: #100f10;
 }
 
 section {
@@ -18,10 +25,19 @@ img {
   border-radius: 6px;
 }
 
+.App .toggle-bar {
+  display: flex;
+  margin-top: 0;
+  margin-bottom: 25px;
+  height: 30px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 #light {
   --text-color: #000;
-  --bg-color: rgb(204, 209, 204);
-  --section-bg-color: #f6f5f5;
+  --bg-color: #cdd7cd;
+  --section-bg-color: #fff;
   --btn-bg-color: #151515;
 }
 
@@ -34,9 +50,14 @@ img {
 
 .App {
   text-align: center;
-  width: 800px;
-  margin: 50px auto;
+  color: var(--text-color);
+  background: var(--bg-color);
+}
+
+.App .container {
+  margin: 10px auto;
   display: block;
+  width: 800px;
 }
 
 .Quote h2 {
