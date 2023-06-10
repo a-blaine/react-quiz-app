@@ -7,15 +7,6 @@ export default function Quote() {
   const [photos, setPhotos] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
-  function handleResponse(response) {
-    setAllQuotes(response.data);
-    setDisplayedQuote({
-      quote: response.data[0].text,
-      author: response.data[0].author,
-    });
-    setLoaded(true);
-  }
-
   function getNewQuote(quote) {
     let newDisplayedQuote = quote[Math.floor(Math.random() * allQuotes.length)];
     return setDisplayedQuote({
@@ -28,9 +19,17 @@ export default function Quote() {
     getNewQuote(allQuotes);
   }
 
+  function handleResponse(response) {
+    setAllQuotes(response.data);
+    setDisplayedQuote({
+      quote: response.data[0].text,
+      author: response.data[0].author,
+    });
+    setLoaded(true);
+  }
+
   function handlePexelsResponse(response) {
     setPhotos(response.data.photos);
-    console.log(photos);
   }
 
   function load() {

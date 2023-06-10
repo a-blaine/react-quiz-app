@@ -1,6 +1,37 @@
-:root {
-  background: #8f8f8f;
+body {
+  color: var(--text-color);
+  background: var(--bg-color);
 }
+
+section {
+  background: var(--section-bg-color);
+  border-radius: 6px;
+  margin: 10px auto;
+  padding: 10px 14px;
+  box-shadow: 4px 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+#light {
+  --text-color: #000;
+  --bg-color: rgb(204, 209, 204);
+  --section-bg-color: #f6f5f5;
+  --btn-bg-color: #151515;
+}
+
+#dark {
+  --text-color: #bdbcbc;
+  --bg-color: #100f10;
+  --section-bg-color: #1b1b1b;
+  --btn-bg-color: #242424;
+}
+
 .App {
   text-align: center;
   width: 800px;
@@ -20,27 +51,15 @@
 }
 
 .Quote button {
-  padding: 16px 12px;
+  padding: 14px 14px;
   margin: 10px auto;
-  border-radius: 8px;
+  border-radius: 6px;
   border: none;
-  background: #151515;
+  background: var(--btn-bg-color);
   color: #fff;
   text-transform: uppercase;
   font-size: 9px;
   letter-spacing: 2px;
-}
-
-section {
-  background: #fff;
-  border-radius: 6px;
-  margin: 10px auto;
-  padding: 10px 14px;
+  cursor: pointer;
   box-shadow: 4px 10px 15px rgba(0, 0, 0, 0.2);
-}
-
-img {
-  width: 100%;
-  height: 100%;
-  margin-bottom: 10px;
 }
