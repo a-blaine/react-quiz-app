@@ -4,7 +4,7 @@ import axios from "axios";
 export default function Quote() {
   const [displayedQuote, setDisplayedQuote] = useState({});
   const [allQuotes, setAllQuotes] = useState(null);
-  const [photos, setPhotos] = useState(" ");
+  const [photos, setPhotos] = useState([]);
   const [loaded, setLoaded] = useState(false);
 
   function handleResponse(response) {
@@ -30,6 +30,7 @@ export default function Quote() {
 
   function handlePexelsResponse(response) {
     setPhotos(response.data.photos);
+    console.log(photos);
   }
 
   function load() {
@@ -37,11 +38,11 @@ export default function Quote() {
     axios.get(apiUrl).then(handleResponse);
 
     const pexelsApiUrl = `https://api.pexels.com/v1/search?query=nature`;
-    const pexelsApiKey =
+    const pexelsApiHeader =
       "wbS4pv9NuiHZ4u14GNmhWiymhtHjEbzVGjiwVmzmjKktYcpnXIoG2I3u";
 
     axios
-      .get(pexelsApiUrl, { headers: { Authorization: pexelsApiKey } })
+      .get(pexelsApiUrl, { headers: { Authorization: pexelsApiHeader } })
       .then(handlePexelsResponse);
   }
 
