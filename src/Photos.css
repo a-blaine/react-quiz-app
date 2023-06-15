@@ -1,9 +1,15 @@
 .Photos .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+  grid-gap: 20px;
+}
+
+.Photos img {
+  transition: transform 300ms linear;
 }
 
 .Photos img:hover {
-  transform: scale(1.5);
+  transform: scale(1.1);
+  cursor: pointer;
+  filter: contrast(1.1);
 }

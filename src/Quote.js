@@ -37,10 +37,9 @@ export default function Quote() {
     const apiUrl = "https://type.fit/api/quotes";
     axios.get(apiUrl).then(handleResponse);
 
-    const pexelsApiUrl = `https://api.pexels.com/v1/search?query="nature"`;
+    const pexelsApiUrl = "https://api.pexels.com/v1/search?query=nature";
     const pexelsApiHeader =
       "wbS4pv9NuiHZ4u14GNmhWiymhtHjEbzVGjiwVmzmjKktYcpnXIoG2I3u";
-
     axios
       .get(pexelsApiUrl, { headers: { Authorization: pexelsApiHeader } })
       .then(handlePexelsResponse);
@@ -53,6 +52,9 @@ export default function Quote() {
           <h2>"{displayedQuote.quote}"</h2>
           <p>{displayedQuote.author}</p>
           <button onClick={updateQuote}>New quote</button>
+        </section>
+        <section>
+          <p>Pick a background for your quote!</p>
         </section>
         <Photos photos={photos} />
       </div>
