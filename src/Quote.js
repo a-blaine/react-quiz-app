@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Photos from "./Photos";
 
 export default function Quote() {
   const [displayedQuote, setDisplayedQuote] = useState({});
@@ -36,7 +37,7 @@ export default function Quote() {
     const apiUrl = "https://type.fit/api/quotes";
     axios.get(apiUrl).then(handleResponse);
 
-    const pexelsApiUrl = `https://api.pexels.com/v1/search?query=nature`;
+    const pexelsApiUrl = `https://api.pexels.com/v1/search?query="nature"`;
     const pexelsApiHeader =
       "wbS4pv9NuiHZ4u14GNmhWiymhtHjEbzVGjiwVmzmjKktYcpnXIoG2I3u";
 
@@ -53,15 +54,7 @@ export default function Quote() {
           <p>{displayedQuote.author}</p>
           <button onClick={updateQuote}>New quote</button>
         </section>
-        <section>
-          {photos.map((photo, index) => {
-            return (
-              <div key={index}>
-                <img src={photo.src.landscape} alt="Relaxing nature" />
-              </div>
-            );
-          })}
-        </section>
+        <Photos photos={photos} />
       </div>
     );
   } else {

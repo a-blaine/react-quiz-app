@@ -17,10 +17,10 @@ function App() {
       <div className="App" id={theme}>
         <div className="container">
           <div className="toggle-bar">
-            <label> {theme === "light" ? "Light Mode" : "Dark Mode"}</label>
+            <label> {theme === "light" ? "Light Mode" : "Dark Mode"} </label>
             <ReactSwitch onChange={toggleTheme} checked={theme === "dark"} />
           </div>
-          <Quote />
+          <Quote defaultQuery={"nature"} />
         </div>
       </div>
     </ThemeContext.Provider>

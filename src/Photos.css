@@ -1,0 +1,9 @@
+.Photos .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+}
+
+.Photos img:hover {
+  transform: scale(1.5);
+}
