@@ -53,9 +53,6 @@ export default function Quote() {
           <p>{displayedQuote.author}</p>
           <button onClick={updateQuote}>New quote</button>
         </section>
-        <section>
-          <p>Pick a background for your quote!</p>
-        </section>
         <Photos photos={photos} />
       </div>
     );

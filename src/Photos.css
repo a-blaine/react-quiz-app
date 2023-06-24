@@ -13,3 +13,10 @@
   cursor: pointer;
   filter: contrast(1.1);
 }
+
+.bg-photo,
+.bg-photo img {
+  z-index: -1;
+  height: 75vh;
+  width: 75vw;
+}
