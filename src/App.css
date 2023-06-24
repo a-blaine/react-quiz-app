@@ -91,3 +91,78 @@ img {
 .Quote {
   padding-bottom: 20px;
 }
+
+@media (max-width: 920px) {
+  h2 {
+    font-size: 20px;
+  }
+
+  p,
+  label {
+    font-size: 14px;
+  }
+
+  .container {
+    max-width: 80vw;
+  }
+}
+
+@media (max-width: 720px) {
+  .Photos .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .App .toggle-bar {
+    height: 20px;
+  }
+}
+
+@media (max-width: 620px) {
+  .App .toggle-bar {
+    justify-content: center;
+    margin: 0 auto 20px;
+  }
+
+  .Quote button {
+    padding: 10px 10px;
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 500px) {
+  .Photos .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    max-width: 90vw;
+  }
+
+  .Photos img:hover {
+    transform: scale(1.05);
+    filter: contrast(1.1);
+  }
+}
+
+@media (max-width: 400px) {
+  .Photos {
+    display: none;
+  }
+  .container {
+    height: 100vh;
+  }
+
+  h2 {
+    font-size: 14px;
+  }
+
+  p,
+  label {
+    font-size: 10px;
+  }
+
+  .Quote button {
+    letter-spacing: 1px;
+    font-size: 7px;
+  }
+}
