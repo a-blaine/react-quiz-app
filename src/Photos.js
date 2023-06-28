@@ -15,6 +15,7 @@ export default function Photos({ photos }) {
               </div>
             );
           }
+          return null;
         })}
       </div>
     </section>
